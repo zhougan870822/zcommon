@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   <!--窗口显示和退出动画从底部-->
+    <style name="common_anim_window_popu_down">
+        <item name="android:windowEnterAnimation">@anim/common_popu_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/common_popu_out_bottom</item>
+    </style>
+
+
+
+</resources>

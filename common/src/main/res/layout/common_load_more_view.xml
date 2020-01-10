@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="visible"
+    tools:visibility="visible"
+    >
+
+    <FrameLayout
+        android:id="@+id/load_more_default"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_load_more_view_height"
+        android:visibility="gone"
+        tools:visibility="visible"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text=""
+            android:textSize="@dimen/common_load_more_view_text_size"
+            android:textColor="@color/common_load_more_view_text_color"
+            />
+    </FrameLayout>
+
+   <RelativeLayout
+       android:id="@+id/load_more_loading"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/common_load_more_view_height"
+       android:visibility="gone"
+       tools:visibility="visible"
+       >
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_centerInParent="true"
+           >
+
+           <ProgressBar
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:indeterminateDrawable="@drawable/common_progress_load_more"
+               android:layout_marginEnd="20dp"
+               android:layout_marginRight="20dp" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:gravity="center"
+               android:text="正在加载..."
+               android:textSize="@dimen/common_load_more_view_text_size"
+               android:textColor="@color/common_load_more_view_text_color"
+               />
+
+       </LinearLayout>
+   </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/load_more_end"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_load_more_view_height"
+        android:visibility="gone"
+        tools:visibility="visible"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="没有更多数据了"
+            android:textSize="@dimen/common_load_more_view_text_size"
+            android:textColor="@color/common_load_more_view_text_color"
+            />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/load_more_error"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_load_more_view_height"
+        android:visibility="gone"
+        tools:visibility="visible"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="加载失败"
+            android:textSize="@dimen/common_load_more_view_text_size"
+            android:textColor="@color/common_load_more_view_text_color"
+            />
+    </FrameLayout>
+
+</FrameLayout>
