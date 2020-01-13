@@ -423,9 +423,6 @@ public class UriUtils {
      * @return
      */
     public static Uri getUriForFile(Context context, String path, String authority) {
-        if (authority == null) {
-            authority = context.getPackageName() + Constant.FILE_PROVIDER_AUTHORITY_SUFFIX;
-        }
         //7.0以上
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return FileProvider.getUriForFile(context, authority, new File(path));

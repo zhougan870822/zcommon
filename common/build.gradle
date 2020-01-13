@@ -8,7 +8,7 @@ android {
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.0.2"
 
     }
 
@@ -34,7 +34,10 @@ dependencies {
     implementation rootProject.ext.android["extensions"]
     implementation rootProject.ext.android["design"]
     //第三方依赖
+    //json字符串解析
     implementation rootProject.ext.dependencies["gson"]
-
+    //图片加载
+    implementation rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glide:compiler"]
 
 }

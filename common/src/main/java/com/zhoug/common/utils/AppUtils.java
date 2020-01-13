@@ -429,13 +429,7 @@ public class AppUtils {
         }
     }
 
-    /**
-     * 安装apk文件 authority默认：context.getPackageName()+".fileprovider"
-     */
-    public static void installApk(Context context, File file ) throws FileNotFoundException {
-        AppUtils.installApk(context,file,context.getPackageName()+Constant.FILE_PROVIDER_AUTHORITY_SUFFIX );
 
-    }
 
     /**
      * 检测程序是否安装
