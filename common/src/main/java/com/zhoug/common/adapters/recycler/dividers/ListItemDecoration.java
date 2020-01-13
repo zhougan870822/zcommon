@@ -15,11 +15,11 @@ import android.widget.LinearLayout;
 /**
  * recyclerView的分割线 可以设置前(skipFirst)后(skipLast)跳过多少个item不画分割线
  */
-public class DividerItem extends RecyclerView.ItemDecoration {
+public class ListItemDecoration extends RecyclerView.ItemDecoration {
     public static final int HORIZONTAL = LinearLayout.HORIZONTAL;
     public static final int VERTICAL = LinearLayout.VERTICAL;
 
-    private static final String TAG = "DividerItem";
+    private static final String TAG = "ListItemDecoration";
     private static final int[] ATTRS = new int[]{android.R.attr.listDivider};
 
     private Drawable mDivider;
@@ -45,7 +45,7 @@ public class DividerItem extends RecyclerView.ItemDecoration {
      * @param context     Current context, it will be used to access resources.
      * @param orientation Divider orientation. Should be {@link #HORIZONTAL} or {@link #VERTICAL}.
      */
-    public DividerItem(Context context, int orientation) {
+    public ListItemDecoration(Context context, int orientation) {
         final TypedArray a = context.obtainStyledAttributes(ATTRS);
         mDivider = a.getDrawable(0);
         if (mDivider == null) {
@@ -56,7 +56,7 @@ public class DividerItem extends RecyclerView.ItemDecoration {
         setOrientation(orientation);
     }
 
-    public DividerItem(Context context, int orientation, @DrawableRes int resId) {
+    public ListItemDecoration(Context context, int orientation, @DrawableRes int resId) {
         mDivider = context.getResources().getDrawable(resId);
         setOrientation(orientation);
     }

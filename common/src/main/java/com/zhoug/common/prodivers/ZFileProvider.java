@@ -1,5 +1,7 @@
 package com.zhoug.common.prodivers;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.content.FileProvider;
 
 /**
@@ -19,7 +21,11 @@ import android.support.v4.content.FileProvider;
  *
  */
 public class ZFileProvider extends FileProvider {
-    public static  String AUTHORITY="packageName.fileprovider";
+    public static  String AUTHORITY=".fileprovider";
 
+
+    public static String getAuthority(@NonNull Context context){
+        return context.getPackageName()+AUTHORITY;
+    }
 
 }
