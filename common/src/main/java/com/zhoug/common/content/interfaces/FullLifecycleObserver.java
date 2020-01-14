@@ -1,4 +1,4 @@
-package com.zhoug.common.interfaces;
+package com.zhoug.common.content.interfaces;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;

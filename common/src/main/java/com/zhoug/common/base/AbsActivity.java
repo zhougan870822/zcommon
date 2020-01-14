@@ -6,17 +6,21 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.zhoug.common.content.interfaces.ILoadProgress;
 import com.zhoug.common.utils.StatusBarUtils;
 import com.zhoug.common.utils.ToastUtils;
+import com.zhoug.common.widget.ProgressDialog;
 
 
 /**
+ * 所有activity的基类
  * @Author HK-LJJ
  * @Date 2019/11/28
  * @Description
  */
-public abstract class AbsActivity extends AppCompatActivity {
+public abstract class AbsActivity extends AppCompatActivity implements ILoadProgress {
     protected static final String TAG = ">>>AbsActivity";
+    protected ProgressDialog loadDialog;
 
 
     @Override
@@ -100,5 +104,30 @@ public abstract class AbsActivity extends AppCompatActivity {
         ToastUtils.toastLongCenter(getApplicationContext(), msg);
     }
 
+    /**
+     * 显示正在加载框
+     */
+    @Override
+    public void showLoading(){
+        if (loadDialog == null) {
+            loadDialog = new ProgressDialog(this);
+            loadDialog.setCancelable(true);
+            loadDialog.setCanceledOnTouchOutside(false);
+            loadDialog.setZezhao(true);
+        }
+        if (!loadDialog.isShowing()) {
+            loadDialog.show();
+        }
+    }
+
+    /**
+     * 隐藏正在加载框
+     */
+    @Override
+    public void cancelLoading(){
+        if (loadDialog != null && loadDialog.isShowing()) {
+            loadDialog.cancel();
+        }
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.zhoug.common.annotation;
+package com.zhoug.common.content.annotation;
 
 import android.support.annotation.IntDef;
 

@@ -1,4 +1,4 @@
-package com.zhoug.common.interfaces;
+package com.zhoug.common.content.interfaces;
 
 /**
  * 回掉

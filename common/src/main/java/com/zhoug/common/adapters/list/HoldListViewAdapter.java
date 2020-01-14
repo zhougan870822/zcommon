@@ -1,4 +1,4 @@
-package com.zhoug.common.adapters;
+package com.zhoug.common.adapters.list;
 
 import android.graphics.Bitmap;
 import android.graphics.Paint;

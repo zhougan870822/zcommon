@@ -1,4 +1,4 @@
-package com.zhoug.common.adapters;
+package com.zhoug.common.adapters.list;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.zhoug.common.prodivers;
+package com.zhoug.common.content.prodivers;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import android.support.v4.content.FileProvider;
  * AndroidManifest.xml配置
  * <provider
  *    android:name="android.support.v4.content.FileProvider"
- *    android:authorities="package.fileprovider"
+ *    android:authorities="${applicationId}.fileprovider"
  *    android:grantUriPermissions="true"
  *    android:exported="false">
  *    <meta-data

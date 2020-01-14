@@ -5,11 +5,10 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.zhoug.common.base.AbsActivity;
-import com.zhoug.common.imageloader.ImageLoader;
+import com.zhoug.common.glide.ImageLoader;
 import com.zhoug.common.permission.PermissionManager;
 import com.zhoug.common.utils.IntentUtils;
 import com.zhoug.common.utils.StatusBarUtils;

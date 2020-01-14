@@ -11,19 +11,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zhoug.common.content.interfaces.ILoadProgress;
 import com.zhoug.common.utils.ToastUtils;
+import com.zhoug.common.widget.ProgressDialog;
 
 
 /**
+ * 所有Fragment的基类
  * @Author HK-LJJ
  * @Date 2019/11/28
  * @Description
  */
-public abstract class AbsFragment extends Fragment {
+public abstract class AbsFragment extends Fragment  implements ILoadProgress {
     protected static final String TAG = ">>>AbsFragment";
 
     private static final String STATE_SAVE_IS_HIDDEN = "isHidden";
     protected boolean isDestroyView=true;
+    protected ProgressDialog loadDialog;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -103,4 +107,31 @@ public abstract class AbsFragment extends Fragment {
         }
     }
 
+
+
+    /**
+     * 显示正在加载框
+     */
+    @Override
+    public void showLoading(){
+        if (loadDialog == null && getActivity()!=null) {
+            loadDialog = new ProgressDialog(getActivity());
+            loadDialog.setCancelable(true);
+            loadDialog.setCanceledOnTouchOutside(false);
+            loadDialog.setZezhao(true);
+        }
+        if (!loadDialog.isShowing()) {
+            loadDialog.show();
+        }
+    }
+
+    /**
+     * 隐藏正在加载框
+     */
+    @Override
+    public void cancelLoading(){
+        if (loadDialog != null && loadDialog.isShowing()) {
+            loadDialog.cancel();
+        }
+    }
 }

@@ -2,9 +2,6 @@ package com.zhoug.common.base;
 
 import android.app.Activity;
 
-
-import com.zhoug.common.utils.LogUtils;
-
 import java.util.Stack;
 
 /**
@@ -13,13 +10,28 @@ import java.util.Stack;
  * @Date 2019/12/5
  * @Description
  */
-public abstract class ActivityManager {
+public class ActivityManager {
     private static final String TAG = ">>>ActivityManager";
-    private Stack<Activity> activityStack;
+    private Stack<Activity> activityStack;//activity集合
+    private static ActivityManager instance;
 
+    private ActivityManager() {
 
-    protected ActivityManager() {
+    }
 
+    /**
+     * 获取单例
+     * @return
+     */
+    public static ActivityManager get(){
+        if(instance==null){
+            synchronized (ActivityManager.class){
+                if(instance==null){
+                    instance=new ActivityManager();
+                }
+            }
+        }
+        return instance;
     }
 
     /**
@@ -31,9 +43,9 @@ public abstract class ActivityManager {
         if (activityStack == null) {
             activityStack = new Stack<>();
         }
-        if(activity!=null){
+        if (activity != null) {
             activityStack.push(activity);
-            LogUtils.d(TAG, "addActivity:" + activity);
+//            LogUtils.d(TAG, "addActivity:" + activity);
         }
     }
 
@@ -43,8 +55,8 @@ public abstract class ActivityManager {
      */
     public void removeActivity(Activity activity) {
         if (activityStack != null && activity != null) {
-            if(activityStack.remove(activity)){
-                LogUtils.d(TAG, "removeActivity:" + activity);
+            if (activityStack.remove(activity)) {
+//                LogUtils.d(TAG, "removeActivity:" + activity);
             }
 
         }
@@ -62,7 +74,6 @@ public abstract class ActivityManager {
 
     /**
      * 获取指定的Activity
-     *
      * @author kymjs
      */
     public Activity getActivity(Class<?> cls) {
@@ -82,7 +93,7 @@ public abstract class ActivityManager {
         if (activity != null) {
             if (!activity.isFinishing()) {
                 activity.finish();
-                LogUtils.d(TAG, "finishActivity:" + activity);
+//                LogUtils.d(TAG, "finishActivity:" + activity);
             }
         }
     }
@@ -110,16 +121,13 @@ public abstract class ActivityManager {
         if (activityStack == null || activityStack.empty()) {
             return;
         }
-        while (!activityStack.empty()){
+        while (!activityStack.empty()) {
             //移出栈顶activity
             Activity pop = activityStack.pop();
             finishActivity(pop);
         }
         activityStack.clear();
     }
-
-
-
 
 
 }

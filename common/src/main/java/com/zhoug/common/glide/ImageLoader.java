@@ -1,4 +1,4 @@
-package com.zhoug.common.imageloader;
+package com.zhoug.common.glide;
 
 import android.content.Context;
 import android.graphics.Bitmap;

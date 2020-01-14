@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.zhoug'
+apply from:'maven_local.gradle'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION
